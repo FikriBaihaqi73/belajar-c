@@ -20,10 +20,10 @@ int main() {
         printf("pilihan tidak valid\n");
         return 0;
     } else {
-    printf("masukkan angka pertama: ");
-    scanf("%d", &a);
-    printf("masukkan angka kedua: ");
-    scanf("%d", &b);      
+        printf("masukkan angka pertama: ");
+        scanf("%d", &a);
+        printf("masukkan angka kedua: ");
+        scanf("%d", &b);      
     }
 
     switch (pilih) {
