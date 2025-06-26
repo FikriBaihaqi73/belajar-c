@@ -4,6 +4,7 @@ int main() {
     int a;
     int b;
     int pilih;
+    int hasil;
 
     printf("Selamat datang di kalkulator sederhana\n");
 
@@ -15,37 +16,30 @@ int main() {
     printf("pilih 1-4: ");
     scanf("%d", &pilih);
 
+    printf("masukkan angka pertama: ");
+    scanf("%d", &a);
+    printf("masukkan angka kedua: ");
+    scanf("%d", &b);
+
     switch (pilih) {
         case 1:
-            printf("Masukkan angka pertama: ");
-            scanf("%d", &a);
-            printf("Masukkan angka kedua: ");
-            scanf("%d", &b);
-            printf("Hasil penjumlahan: %d\n", a + b);
+        hasil = a + b;
+            printf("Hasil penjumlahan: %d\n", hasil);
             break;
         case 2:
-            printf("Masukkan angka pertama: ");
-            scanf("%d", &a);
-            printf("Masukkan angka kedua: ");
-            scanf("%d", &b);
-            printf("Hasil pengurangan: %d\n", a - b);
+        hasil = a - b;
+            printf("Hasil pengurangan: %d\n", hasil);
             break;
         case 3:
-            printf("Masukkan angka pertama: ");
-            scanf("%d", &a);
-            printf("Masukkan angka kedua: ");
-            scanf("%d", &b);
-            printf("Hasil perkalian: %d\n", a * b);
+        hasil = a * b;
+            printf("Hasil perkalian: %d\n", hasil);
             break;
         case 4:
-            printf("Masukkan angka pertama: ");
-            scanf("%d", &a);
-            printf("Masukkan angka kedua: ");
-            scanf("%d", &b);
-            printf("Hasil pembagian: %d\n", a / b);
+        hasil = a / b;
+            printf("Hasil pembagian: %d\n", hasil);
             break;
         default:
-            printf("Pilihan tidak valid\n");
+        break;
     }
     return 0;
 }
