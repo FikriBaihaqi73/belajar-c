@@ -16,10 +16,15 @@ int main() {
     printf("pilih 1-4: ");
     scanf("%d", &pilih);
 
+    if (pilih < 1 || pilih > 4) {
+        printf("pilihan tidak valid\n");
+        return 0;
+    } else {
     printf("masukkan angka pertama: ");
     scanf("%d", &a);
     printf("masukkan angka kedua: ");
-    scanf("%d", &b);
+    scanf("%d", &b);      
+    }
 
     switch (pilih) {
         case 1:
