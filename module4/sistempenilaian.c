@@ -2,73 +2,100 @@
 #include <string.h>
 
 int main() {
-    char nama[100];
+    char nama_mahasiswa[100];
     int nim;
-    float mtk, coding, ing, rata;
+    float nilai_mtk, nilai_pemrogramman, nilai_bahasa_inggris;
+    float rata_rata, nilai_keseluruhan;
+    int angka_predikat;
     char predikat[20];
-    int kelulusan = 1;
+    int lulus = 1;
 
-    printf("Masukkan Nama:");
-    fgets(nama, sizeof(nama), stdin);
+    printf("Masukkan nama mahasiswa: ");
+    fgets(nama_mahasiswa, sizeof(nama_mahasiswa), stdin);
 
-    printf("Masukkan NIM:");
+    printf("Masukkan NIM: ");
     scanf("%d", &nim);
-    getchar();
 
-    printf("Masukkan nilai mtk:");
-    scanf("%f", &mtk);
-    getchar();
+    printf("Masukkan nilai MTK: ");
+    scanf("%f", &nilai_mtk);
 
-    printf("Masukkan nilai Pemrograman:");
-    scanf("%f", &coding);
-    getchar();
+    printf("Masukkan nilai Pemrogramman: ");
+    scanf("%f", &nilai_pemrogramman);
 
-    printf("Masukkan nilai Bahasa inggris:");
-    scanf("%f", &ing);
-    getchar();
-    
-    rata = (mtk + coding + ing) / 3;
+    printf("Masukkan nilai Bahasa Inggris: ");
+    scanf("%f", &nilai_bahasa_inggris);
 
-    if (mtk < 6.00) {
-        printf("Anda tidak lulus karena nilai mtk anda kurang dari 60 nilai anda adalah: %.2f\n", mtk);
-        kelulusan = 0;
-    } if (coding < 6.00) {
-        printf("Anda tidak lulus karena nilai pemrograman anda kurang dari 60 nilai anda adalah: %.2f\n", coding);
-        kelulusan = 0;
-    } if (ing < 6.00) {
-        printf("Anda tidak lulus karena nilai bahasa inggris anda kurang dari 60 nilai anda adalah: %.2f\n", coding);
-        kelulusan = 0;
+    nilai_keseluruhan = nilai_mtk + nilai_pemrogramman + nilai_bahasa_inggris;
+    rata_rata = nilai_keseluruhan / 3;
+
+    if (nilai_mtk < 60 || nilai_pemrogramman < 60 || nilai_bahasa_inggris < 60) {
+        lulus = 0;
     }
 
-    if (kelulusan == 1) {
 
-    int range = (int)(rata);
+    if (rata_rata >= 90) {
+        angka_predikat = 1;
+    } else if (rata_rata >= 80) {
+        angka_predikat = 2;
+    } else if (rata_rata >= 70) {
+        angka_predikat = 3;
+    } else if (rata_rata >= 60) {
+        angka_predikat = 4;
+    } else if (rata_rata < 60) {
+        angka_predikat = 5;
+    }
 
-    switch(range) {
-        case 10:
-        case 9:
+    switch (angka_predikat)
+    {
+    case 1:
         strcpy(predikat, "Istimewa");
         break;
-        case 8:
+    case 2:
         strcpy(predikat, "Sangat Baik");
         break;
-        case 7:
+    case 3:
         strcpy(predikat, "Baik");
         break;
-        case 6:
-        strcpy(predikat, "cukup");
+    case 4:
+        strcpy(predikat, "Cukup");
         break;
-        default:
-        strcpy(predikat, "Tidak lulus");
+    case 5:
+        strcpy(predikat, "Tidak Valid");
+        break;
+    default:
+        break;
     }
-    printf("\nData mahasiswa dan hasilnya\n");
-    printf("Nama: %s", nama);
-    printf("Nim: %d\n", nim);
-    printf("Nilai mtk: %.2f\n", mtk);
-    printf("Nilai pemrograman: %.2f\n", coding);
-    printf("Nilai bahasa inggris: %.2f\n", ing);
-    printf("Nilai Rata-rata: %.2f\n", rata);
-    printf("Predikat: %s\n", predikat);
+
+    if (lulus == 0) {
+        printf("\n====== Data Mahasiswa Tidak LULUS ======\n");
+
+        printf("Mahasiswa dengan nama %s", nama_mahasiswa);
+        printf("Dengan NIM %d\n", nim);
+        printf("Tidak lulus karena: \n");
+
+        if (nilai_mtk < 60) {
+           printf("Nilai MTK kamu kurang dari 60, nilai kamu: %.2f", nilai_mtk); 
+        }
+
+        if (nilai_pemrogramman < 60) {
+            printf("\nNilai Pemrogramman kamu kurang dari 60, nilai kamu: %.2f", nilai_pemrogramman);
+        }
+
+        if (nilai_bahasa_inggris < 60) {
+            printf("\nNilai Bahasa Inggris kamu kurang dari 60, nilai kamu: %.2f\n", nilai_bahasa_inggris);
+        }
+    }
+
+    if (lulus == 1) {
+        printf("\n====== Data Mahasiswa LULUS ======\n");
+        printf("Nama: %s", nama_mahasiswa);
+        printf("NIM: %d\n", nim);
+        printf("Nilai MTK: %.2f\n", nilai_mtk);
+        printf("Nilai Pemrogramman: %.2f\n", nilai_pemrogramman);
+        printf("Nilai Bahasa Inggris: %.2f\n", nilai_bahasa_inggris);
+        printf("Rata-rata Nilai: %.2f\n", rata_rata);
+        printf("Predikat: %s\n", predikat);
+        
+    }
     return 0;
-    }
 }
