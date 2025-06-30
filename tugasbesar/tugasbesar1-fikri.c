@@ -10,7 +10,7 @@ int main() {
     char nama_film[100], waktu_tayang[100], kategori_usia[100];
 
     printf("========= DAFTAR FILM ========");
-    printf("1. Avengers: Endgame (13.00)\n");
+    printf("\n1. Avengers: Endgame (13.00)\n");
     printf("2. Coco (15.00)\n");
     printf("3. Interstellar (18.00)\n");
     printf("4. Joker (20.00)\n");
